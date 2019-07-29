@@ -9,7 +9,7 @@
 import UIKit
 
 struct DTStringPicker {
-    static func show(with configuration: DTStringPickerConfig, title: String, rows: [String], done: @escaping(_ selected: Int, _ str: String) -> Void, cancel: @escaping() -> Void, from viewController: UIViewController) {
+    static func show(with configuration: DTStringPickerConfig, rows: [String], done: @escaping(_ selected: Int, _ str: String) -> Void, cancel: @escaping() -> Void, from viewController: UIViewController) {
         let picker = DTPickerRouter.openPicker(from: viewController, list: rows, config: configuration)
         picker.cancel = cancel
         picker.clicked = done

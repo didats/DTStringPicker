@@ -15,6 +15,33 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func clicked(_ sender: UIButton) {
+        
+        // specify the list of the string to choose
+        let rows: [String] = [
+            "Pilih Nomor satu",
+            "Dia pilih dua",
+            "Tiga-tiga sayang bunda juga",
+            "Satu-dua-tiga sayang bunda aja",
+            "Nomor lima gak ada duanya",
+            "Kalau nomor 6, siapa yang suka",
+            "Nomor tujuh, itu nomor saya",
+            "Delapan, bulan Agustus",
+            "Kalau Sembilan, bulan September",
+            "Sepuluh, bulan Oktober",
+        ]
+        
+        // create configuration
+        let config = DTStringPickerConfig(cancel: "Cancel", font: UIFont.systemFont(ofSize: 17, weight: .light), color: UIColor.black)
+        
+        // run the DTStringPicker
+        DTStringPicker.show(with: config, rows: rows, done: { (selected, str) in
+            sender.setTitle(str, for: .normal)
+        }, cancel: {
+            sender.setTitle("Cancelled", for: .normal)
+        }, from: self)
+        
+    }
+    
 }
 
