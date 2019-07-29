@@ -13,6 +13,12 @@
 		1BE9FD6F22EFA96800BF7CC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BE9FD6D22EFA96800BF7CC2 /* Main.storyboard */; };
 		1BE9FD7122EFA96A00BF7CC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BE9FD7022EFA96A00BF7CC2 /* Assets.xcassets */; };
 		1BE9FD7422EFA96A00BF7CC2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BE9FD7222EFA96A00BF7CC2 /* LaunchScreen.storyboard */; };
+		1BE9FD7F22EFAB3C00BF7CC2 /* DTPickerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9FD7922EFAB3C00BF7CC2 /* DTPickerRouter.swift */; };
+		1BE9FD8022EFAB3C00BF7CC2 /* DTPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9FD7A22EFAB3C00BF7CC2 /* DTPickerViewController.swift */; };
+		1BE9FD8122EFAB3C00BF7CC2 /* DTPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9FD7B22EFAB3C00BF7CC2 /* DTPickerView.swift */; };
+		1BE9FD8222EFAB3C00BF7CC2 /* DTPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9FD7C22EFAB3C00BF7CC2 /* DTPickerCell.swift */; };
+		1BE9FD8322EFAB3C00BF7CC2 /* DTPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9FD7D22EFAB3C00BF7CC2 /* DTPickerPresenter.swift */; };
+		1BE9FD8422EFAB3C00BF7CC2 /* DTStringPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9FD7E22EFAB3C00BF7CC2 /* DTStringPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +32,12 @@
 		1BE9FD7022EFA96A00BF7CC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BE9FD7322EFA96A00BF7CC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1BE9FD7522EFA96A00BF7CC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1BE9FD7922EFAB3C00BF7CC2 /* DTPickerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTPickerRouter.swift; sourceTree = "<group>"; };
+		1BE9FD7A22EFAB3C00BF7CC2 /* DTPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTPickerViewController.swift; sourceTree = "<group>"; };
+		1BE9FD7B22EFAB3C00BF7CC2 /* DTPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTPickerView.swift; sourceTree = "<group>"; };
+		1BE9FD7C22EFAB3C00BF7CC2 /* DTPickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTPickerCell.swift; sourceTree = "<group>"; };
+		1BE9FD7D22EFAB3C00BF7CC2 /* DTPickerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTPickerPresenter.swift; sourceTree = "<group>"; };
+		1BE9FD7E22EFAB3C00BF7CC2 /* DTStringPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTStringPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +80,12 @@
 			isa = PBXGroup;
 			children = (
 				1BE9FD5B22EFA81A00BF7CC2 /* DTStringPicker.h */,
+				1BE9FD7C22EFAB3C00BF7CC2 /* DTPickerCell.swift */,
+				1BE9FD7D22EFAB3C00BF7CC2 /* DTPickerPresenter.swift */,
+				1BE9FD7922EFAB3C00BF7CC2 /* DTPickerRouter.swift */,
+				1BE9FD7B22EFAB3C00BF7CC2 /* DTPickerView.swift */,
+				1BE9FD7A22EFAB3C00BF7CC2 /* DTPickerViewController.swift */,
+				1BE9FD7E22EFAB3C00BF7CC2 /* DTStringPicker.swift */,
 				1BE9FD5C22EFA81A00BF7CC2 /* Info.plist */,
 			);
 			path = DTStringPicker;
@@ -147,6 +165,7 @@
 				TargetAttributes = {
 					1BE9FD5722EFA81A00BF7CC2 = {
 						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1030;
 					};
 					1BE9FD6622EFA96800BF7CC2 = {
 						CreatedOnToolsVersion = 10.3;
@@ -197,6 +216,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BE9FD8022EFAB3C00BF7CC2 /* DTPickerViewController.swift in Sources */,
+				1BE9FD7F22EFAB3C00BF7CC2 /* DTPickerRouter.swift in Sources */,
+				1BE9FD8122EFAB3C00BF7CC2 /* DTPickerView.swift in Sources */,
+				1BE9FD8222EFAB3C00BF7CC2 /* DTPickerCell.swift in Sources */,
+				1BE9FD8422EFAB3C00BF7CC2 /* DTStringPicker.swift in Sources */,
+				1BE9FD8322EFAB3C00BF7CC2 /* DTPickerPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +381,7 @@
 		1BE9FD6122EFA81A00BF7CC2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
@@ -374,6 +400,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -382,6 +409,7 @@
 		1BE9FD6222EFA81A00BF7CC2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
