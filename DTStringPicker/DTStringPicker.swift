@@ -8,16 +8,19 @@
 
 import UIKit
 
-struct DTStringPicker {
-    static func show(with configuration: DTStringPickerConfig, rows: [String], done: @escaping(_ selected: Int, _ str: String) -> Void, cancel: @escaping() -> Void, from viewController: UIViewController) {
+public struct DTStringPicker {
+    public static func show(with configuration: DTStringPickerConfig, rows: [String], done: @escaping(_ selected: Int, _ str: String) -> Void, cancel: @escaping() -> Void, from viewController: UIViewController) {
         let picker = DTPickerRouter.openPicker(from: viewController, list: rows, config: configuration)
         picker.cancel = cancel
         picker.clicked = done
-        
+    }
+    
+    public static func show(rows: [String], done: @escaping(_ selected: Int, _ str: String) -> Void, cancel: @escaping() -> Void, from viewController: UIViewController) {
+        show(with: DTStringPickerConfig(), rows: rows, done: done, cancel: cancel, from: viewController)
     }
 }
 
-struct DTStringPickerConfig {
+public struct DTStringPickerConfig {
     var cancelTitle: String
     var doneTile: String
     var itemFont: UIFont

@@ -67,8 +67,6 @@ class DTPickerViewController: UIViewController {
         
         constraintBottom = viewBox.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: UIScreen.main.bounds.size.height)
         
-        
-        
         buttonCancel.backgroundColor = config.color.withAlphaComponent(0.3)
         buttonCancel.setTitle(config.cancelTitle, for: .normal)
         buttonCancel.titleLabel?.font = config.cancelFont
@@ -122,7 +120,6 @@ class DTPickerViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         constraintHeight.constant = router.height()
-        print("Height: \(router.height())")
         view.layoutIfNeeded()
     }
 }
