@@ -6,7 +6,7 @@
 A modern approach on how string picker should be. Currently it’s only a string picker.
 
 ## Screenshot
-<p align="center"><img src ="https://github.com/didats/DTStringPicker/raw/master/screenshot.png" /></p>
+![Screenshot](https://github.com/didats/DTStringPicker/raw/master/screenshot.gif)
 
 ##  Requirements
 * Base SDK: iOS 12
@@ -36,7 +36,7 @@ DTStringPicker.show(with: config, rows: rows, done: { (selected, str) in
 ```
 
 ## Author
-**Didats Triadi**
+**Didats Triadi**  
 http://rimbunesia.com
 
 
