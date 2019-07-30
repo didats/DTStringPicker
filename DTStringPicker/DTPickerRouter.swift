@@ -37,6 +37,16 @@ class DTPickerRouter: NSObject  {
             self.presenter.showing(constraint: self.viewController.constraintBottom, viewController: self.viewController)
         }
     }
+    
+    func height() -> CGFloat {
+        var height = UIScreen.main.bounds.size.height / 1.5
+        let dynamicHeight: CGFloat = CGFloat((70 * viewController.list.count) + 80)
+        if dynamicHeight < height {
+            height = dynamicHeight
+        }
+        
+        return height
+    }
 }
 
 extension DTPickerRouter: UITableViewDelegate {

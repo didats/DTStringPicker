@@ -25,6 +25,7 @@ class DTPickerViewController: UIViewController {
     var cancel: (() -> Void)?
     
     var constraintBottom: NSLayoutConstraint!
+    var constraintHeight: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,11 +67,7 @@ class DTPickerViewController: UIViewController {
         
         constraintBottom = viewBox.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: UIScreen.main.bounds.size.height)
         
-        var height = UIScreen.main.bounds.size.height / 1.5
-        let dynamicHeight: CGFloat = CGFloat((70 * list.count) + 80)
-        if dynamicHeight < height {
-            height = dynamicHeight
-        }
+        
         
         buttonCancel.backgroundColor = config.color.withAlphaComponent(0.3)
         buttonCancel.setTitle(config.cancelTitle, for: .normal)
@@ -78,6 +75,10 @@ class DTPickerViewController: UIViewController {
         buttonCancel.layer.cornerRadius = 17.5
         buttonCancel.layer.masksToBounds = true
         buttonCancel.tapped { [unowned self] in self.router.dismiss() }
+        
+        constraintHeight = viewBox.heightAnchor.constraint(equalToConstant: router.height())
+        
+        let margins = view.layoutMarginsGuide
         
         view.addConstraints([
             imageView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -90,7 +91,7 @@ class DTPickerViewController: UIViewController {
             buttonDismiss.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             buttonDismiss.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            viewBox.heightAnchor.constraint(equalToConstant: height),
+            constraintHeight,
             constraintBottom,
             viewBox.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             viewBox.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -105,7 +106,7 @@ class DTPickerViewController: UIViewController {
             tableView.leadingAnchor.constraint(equalTo: viewBox.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: viewBox.trailingAnchor),
             
-            buttonCancel.trailingAnchor.constraint(equalTo: viewBox.trailingAnchor, constant: -20),
+            buttonCancel.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 0),
             buttonCancel.topAnchor.constraint(equalTo: viewBox.topAnchor, constant: 20),
             buttonCancel.heightAnchor.constraint(equalToConstant: 35),
             buttonCancel.widthAnchor.constraint(equalToConstant: 100)
@@ -116,5 +117,12 @@ class DTPickerViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.router.showing()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        constraintHeight.constant = router.height()
+        print("Height: \(router.height())")
+        view.layoutIfNeeded()
     }
 }
