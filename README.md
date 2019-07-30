@@ -1,4 +1,4 @@
-# # DTStringPicker
+# DTStringPicker
 [![Version](https://img.shields.io/cocoapods/v/DTStringPicker.svg?style=flat)](http://cocoapods.org/pods/DTStringPicker)
 [![License](https://img.shields.io/cocoapods/l/DTStringPicker.svg?style=flat)](http://cocoapods.org/pods/DTStringPicker)
 [![Platform](https://img.shields.io/cocoapods/p/DTStringPicker?style=flat)](http://cocoapods.org/pods/DTStringPicker)
