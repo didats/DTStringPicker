@@ -11,11 +11,10 @@ import UIKit
 class DTPickerViewController: UIViewController {
     
     private var tableView = UITableView(frame: CGRect.zero)
-    private var imageView = UIImageView(frame: CGRect.zero)
-    private var buttonDismiss = UIButton(frame: CGRect.zero)
-    private var viewBox = DTPickerView(frame: CGRect.zero)
-    private var buttonArrow = UIButton(frame: CGRect.zero)
-    private var buttonCancel = UIButton(frame: CGRect.zero)
+    private var bgImage = UIImageView(frame: CGRect.zero)
+    private var dismissButton = UIButton(frame: CGRect.zero)
+    private var boxView = DTPickerView(frame: CGRect.zero)
+    private var titleLabel = UILabel(frame: CGRect.zero)
     
     var config: DTStringPickerConfig!
     var list: [String] = []
@@ -31,12 +30,12 @@ class DTPickerViewController: UIViewController {
         super.viewDidLoad()
         router = DTPickerRouter(controller: self)
         
-        let views: [UIView] = [imageView, buttonDismiss, viewBox, buttonArrow, tableView, buttonCancel]
+        let views: [UIView] = [bgImage, dismissButton, boxView, tableView]
         var i = 0
         views.forEach { (item) in
             if item.superview == nil {
                 if i > 2 {
-                    viewBox.addSubview(item)
+                    boxView.addSubview(item)
                 }
                 else {
                     view.addSubview(item)
@@ -45,69 +44,52 @@ class DTPickerViewController: UIViewController {
             item.translatesAutoresizingMaskIntoConstraints = false
             i += 1
         }
-        buttonArrow.setTitle("⇓", for: .normal)
-        buttonArrow.setTitleColor(config.color, for: .normal)
-        buttonArrow.tapped { [unowned self] in self.router.dismiss()  }
         
         tableView.delegate = router
         tableView.dataSource = router
         
         view.backgroundColor = UIColor.clear
         
-        imageView.image = background
-        viewBox.backgroundColor = config.backgroundColor
-        viewBox.layer.cornerRadius = 10
-        viewBox.layer.masksToBounds = true
+        bgImage.image = background
         
-        buttonDismiss.backgroundColor = UIColor.black
-        buttonDismiss.alpha = 0.4
+        boxView.backgroundColor = config.backgroundColor
+        boxView.layer.shadowColor = config.shadowColor.cgColor
+        boxView.layer.shadowOpacity = 0.15
+        boxView.layer.shadowRadius = 5
+        boxView.layer.shadowOffset = CGSize(width: 0, height: -5)
+        boxView.layer.masksToBounds = false
+        boxView.layer.cornerRadius = 12
         
-        buttonDismiss.tapped { [unowned self] in self.router.dismiss() }
-        viewBox.dismiss = { [unowned self] in self.router.dismiss() }
         
-        constraintBottom = viewBox.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: UIScreen.main.bounds.size.height)
+        dismissButton.backgroundColor = UIColor.black
+        dismissButton.alpha = 0.4
         
-        buttonCancel.backgroundColor = config.color.withAlphaComponent(0.3)
-        buttonCancel.setTitle(config.cancelTitle, for: .normal)
-        buttonCancel.titleLabel?.font = config.cancelFont
-        buttonCancel.layer.cornerRadius = 17.5
-        buttonCancel.layer.masksToBounds = true
-        buttonCancel.tapped { [unowned self] in self.router.dismiss() }
+        dismissButton.tapped { [unowned self] in self.router.dismiss() }
+        boxView.dismiss = { [unowned self] in self.router.dismiss() }
         
-        constraintHeight = viewBox.heightAnchor.constraint(equalToConstant: router.height())
+        constraintBottom = boxView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: UIScreen.main.bounds.size.height)
         
-        let margins = view.layoutMarginsGuide
+        constraintHeight = boxView.heightAnchor.constraint(equalToConstant: router.height())
         
         view.addConstraints([
-            imageView.topAnchor.constraint(equalTo: view.topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            bgImage.topAnchor.constraint(equalTo: view.topAnchor),
+            bgImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            bgImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            bgImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            buttonDismiss.topAnchor.constraint(equalTo: view.topAnchor),
-            buttonDismiss.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            buttonDismiss.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            buttonDismiss.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            dismissButton.topAnchor.constraint(equalTo: view.topAnchor),
+            dismissButton.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            dismissButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            dismissButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
             constraintHeight,
             constraintBottom,
-            viewBox.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            viewBox.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            boxView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            boxView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            buttonArrow.widthAnchor.constraint(equalToConstant: 40),
-            buttonArrow.heightAnchor.constraint(equalToConstant: 40),
-            buttonArrow.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            buttonArrow.topAnchor.constraint(equalTo: viewBox.topAnchor, constant: 15),
-            buttonArrow.bottomAnchor.constraint(equalTo: tableView.topAnchor),
-            
-            tableView.bottomAnchor.constraint(equalTo: viewBox.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: viewBox.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: viewBox.trailingAnchor),
-            
-            buttonCancel.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 0),
-            buttonCancel.topAnchor.constraint(equalTo: viewBox.topAnchor, constant: 20),
-            buttonCancel.heightAnchor.constraint(equalToConstant: 35),
-            buttonCancel.widthAnchor.constraint(equalToConstant: 100)
+            tableView.bottomAnchor.constraint(equalTo: boxView.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: boxView.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: boxView.trailingAnchor)
         ])
     }
     

@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         ]
         
         // create configuration
-        let config = DTStringPickerConfig(cancel: "Cancel", font: UIFont.systemFont(ofSize: 17, weight: .light), color: UIColor.black)
+        let config = DTStringPickerConfig(color: UIColor.black, background: UIColor.white)
         
         // run the DTStringPicker
         DTStringPicker.show(with: config, rows: rows, done: { (selected, str) in

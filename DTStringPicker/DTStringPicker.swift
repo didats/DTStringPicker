@@ -21,38 +21,21 @@ public struct DTStringPicker {
 }
 
 public struct DTStringPickerConfig {
-    var cancelTitle: String
-    var doneTile: String
     var itemFont: UIFont
-    var doneFont: UIFont
-    var cancelFont: UIFont
     var color: UIColor
     var backgroundColor: UIColor
+    var shadowColor: UIColor
     
     init() {
-        cancelTitle = "Cancel"
-        doneTile = "Done"
         itemFont = UIFont.systemFont(ofSize: 17, weight: .light)
-        doneFont = UIFont.systemFont(ofSize: 20, weight: .semibold)
-        cancelFont = UIFont.systemFont(ofSize: 16, weight: .regular)
         color = UIColor(red: 221/255, green: 10/255, blue: 89/255, alpha: 1.0)
         backgroundColor = UIColor.white
-        
+        shadowColor = UIColor.black
     }
     
-    init(cancel: String, font: UIFont, cancelFont: UIFont, color: UIColor, background: UIColor) {
+    init(color: UIColor, background: UIColor) {
         self.init()
-        cancelTitle = cancel
-        itemFont = font
-        self.cancelFont = cancelFont
         self.color = color
         backgroundColor = background
-    }
-    
-    init(cancel: String, font: UIFont, color: UIColor) {
-        self.init()
-        cancelTitle = cancel
-        itemFont = font
-        self.color = color
     }
 }

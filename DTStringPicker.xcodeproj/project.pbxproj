@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B2976FB24AC634A0004A272 /* PickerImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2976F924AC634A0004A272 /* PickerImageCell.swift */; };
+		1B2976FC24AC634A0004A272 /* PickerImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B2976FA24AC634A0004A272 /* PickerImageCell.xib */; };
+		1B29770124AC653C0004A272 /* PickerTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2976FF24AC653C0004A272 /* PickerTextCell.swift */; };
+		1B29770224AC653C0004A272 /* PickerTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B29770024AC653C0004A272 /* PickerTextCell.xib */; };
 		1BE9FD5D22EFA81A00BF7CC2 /* DTStringPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BE9FD5B22EFA81A00BF7CC2 /* DTStringPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1BE9FD6A22EFA96800BF7CC2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9FD6922EFA96800BF7CC2 /* AppDelegate.swift */; };
 		1BE9FD6C22EFA96800BF7CC2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9FD6B22EFA96800BF7CC2 /* ViewController.swift */; };
@@ -28,6 +32,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B2976F924AC634A0004A272 /* PickerImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerImageCell.swift; sourceTree = "<group>"; };
+		1B2976FA24AC634A0004A272 /* PickerImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerImageCell.xib; sourceTree = "<group>"; };
+		1B2976FF24AC653C0004A272 /* PickerTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerTextCell.swift; sourceTree = "<group>"; };
+		1B29770024AC653C0004A272 /* PickerTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerTextCell.xib; sourceTree = "<group>"; };
 		1BE9FD5822EFA81A00BF7CC2 /* DTStringPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DTStringPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BE9FD5B22EFA81A00BF7CC2 /* DTStringPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTStringPicker.h; sourceTree = "<group>"; };
 		1BE9FD5C22EFA81A00BF7CC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -71,6 +79,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B2976F824AC630B0004A272 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1B2976FE24AC651F0004A272 /* Text */,
+				1B2976FD24AC65120004A272 /* Image */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		1B2976FD24AC65120004A272 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				1B2976F924AC634A0004A272 /* PickerImageCell.swift */,
+				1B2976FA24AC634A0004A272 /* PickerImageCell.xib */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		1B2976FE24AC651F0004A272 /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				1B2976FF24AC653C0004A272 /* PickerTextCell.swift */,
+				1B29770024AC653C0004A272 /* PickerTextCell.xib */,
+			);
+			path = Text;
+			sourceTree = "<group>";
+		};
 		1BE9FD4E22EFA81A00BF7CC2 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +127,7 @@
 		1BE9FD5A22EFA81A00BF7CC2 /* DTStringPicker */ = {
 			isa = PBXGroup;
 			children = (
+				1B2976F824AC630B0004A272 /* Cells */,
 				1BE9FD5B22EFA81A00BF7CC2 /* DTStringPicker.h */,
 				1BE9FD7C22EFAB3C00BF7CC2 /* DTPickerCell.swift */,
 				1BE9FD7D22EFAB3C00BF7CC2 /* DTPickerPresenter.swift */,
@@ -224,6 +260,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B29770224AC653C0004A272 /* PickerTextCell.xib in Resources */,
+				1B2976FC24AC634A0004A272 /* PickerImageCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +284,8 @@
 			files = (
 				1BE9FD8022EFAB3C00BF7CC2 /* DTPickerViewController.swift in Sources */,
 				1BE9FD7F22EFAB3C00BF7CC2 /* DTPickerRouter.swift in Sources */,
+				1B29770124AC653C0004A272 /* PickerTextCell.swift in Sources */,
+				1B2976FB24AC634A0004A272 /* PickerImageCell.swift in Sources */,
 				1BE9FD8122EFAB3C00BF7CC2 /* DTPickerView.swift in Sources */,
 				1BE9FD8222EFAB3C00BF7CC2 /* DTPickerCell.swift in Sources */,
 				1BE9FD8422EFAB3C00BF7CC2 /* DTStringPicker.swift in Sources */,
