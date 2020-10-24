@@ -1,17 +1,19 @@
 # DTStringPicker
+[![GitHub release](https://img.shields.io/github/release/didats/DTStringPicker.svg)](https://github.com/didats/DTStringPicker/releases)
 ![Swift 5.0](https://img.shields.io/badge/Swift-5.0-orange.svg)
 [![Version](https://img.shields.io/cocoapods/v/DTStringPicker.svg?style=flat)](http://cocoapods.org/pods/DTStringPicker)
 [![License](https://img.shields.io/cocoapods/l/DTStringPicker.svg?style=flat)](http://cocoapods.org/pods/DTStringPicker)
 [![Platform](https://img.shields.io/cocoapods/p/DTStringPicker?style=flat)](http://cocoapods.org/pods/DTStringPicker)
+[![CocoaPods](https://img.shields.io/badge/Cocoa%20Pods-✓-4BC51D.svg?style=flat)](https://cocoapods.org/pods/DTStringPicker)
 
 A modern String Picker with search functionality. 
 
 ## Screenshot
-![Screenshot](https://github.com/didats/DTStringPicker/raw/master/screenshot.gif)
+![Screenshot](https://github.com/didats/DTStringPicker/raw/master/screenshot-sample.gif)
 
 ##  Requirements
 * Base SDK: iOS 12
-* Deployment Target: iOS 9.0 or greater
+* Deployment Target: iOS 10.0 or greater
 
 ## Installation
 Add following in your Podfile
@@ -41,18 +43,20 @@ DTStringPicker.show(with: config, rowItems: rows.map({ DTStringPickerModelItem(t
 ```swift
 // specify the strings
 let rows: [DTStringPickerModelSection] = [
-	DTStringPickerModelSection(title: "Header 1",
-								items: [
-								DTStringPickerModelItem(text: "Pilih satu dua"),
-								DTStringPickerModelItem(text: "Ini nomor dua"),
-								DTStringPickerModelItem(text: "Di sini nomor ketiga"),
-								]),
-	DTStringPickerModelSection(title: "Second Header",
-								items: [
-								DTStringPickerModelItem(text: "Pilih satu dua"),
-								DTStringPickerModelItem(text: "Ini nomor dua"),
-								DTStringPickerModelItem(text: "Di sini nomor ketiga"),
-								]),
+	DTStringPickerModelSection(
+		title: "Header 1",
+		items: [
+			DTStringPickerModelItem(text: "Pilih satu dua"),
+			DTStringPickerModelItem(text: "Ini nomor dua"),
+			DTStringPickerModelItem(text: "Di sini nomor ketiga"),
+		]),
+	DTStringPickerModelSection(
+		title: "Second Header",
+		items: [
+			DTStringPickerModelItem(text: "Pilih satu dua"),
+			DTStringPickerModelItem(text: "Ini nomor dua"),
+			DTStringPickerModelItem(text: "Di sini nomor ketiga"),
+		]),
 ]
 
 // custom ui
