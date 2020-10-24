@@ -9,7 +9,7 @@
 A modern String Picker with search functionality. 
 
 ## Screenshot
-![Screenshot](https://github.com/didats/DTStringPicker/raw/master/screenshot-sample.gif)
+![Screenshot](https://github.com/didats/DTStringPicker/raw/master/DTStringPicker.gif)
 
 ##  Requirements
 * Base SDK: iOS 12
