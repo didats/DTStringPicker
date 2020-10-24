@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/cocoapods/l/DTStringPicker.svg?style=flat)](http://cocoapods.org/pods/DTStringPicker)
 [![Platform](https://img.shields.io/cocoapods/p/DTStringPicker?style=flat)](http://cocoapods.org/pods/DTStringPicker)
 
-A modern approach on how string picker should be. Currently it’s only a string picker.
+A modern String Picker with search functionality. 
 
 ## Screenshot
 ![Screenshot](https://github.com/didats/DTStringPicker/raw/master/screenshot.gif)
@@ -20,25 +20,66 @@ Add following in your Podfile
 pod ‘DTStringPicker’
 ```
 
-## Usage
+## Usage without section
 ```swift
 // specify the strings
-let rows = [“Choose 1”, “Choose Number 2”,  “Number 3”]
+let rows = ["Number 1", "Another option 2", "The third choice", "4th item", "Other option", "Anything option"]
 
 // create configuration
-let config = DTStringPickerConfig(cancel: “Cancel”, font: UIFont.systemFont(ofSize: 17, weight: .light), color: UIColor.black)
+var config = DTStringPickerConfig(color: UIColor.black, background: UIColor.white)
+config.title = "Choose one option"
+config.alignment = .right
 
-// show the picker
-DTStringPicker.show(with: config, rows: rows, done: { (selected, str) in
-	// do something here. you got index selected and the string
+DTStringPicker.show(with: config, rowItems: rows.map({ DTStringPickerModelItem(text: $0) }), done: { item in
+	print("Item: \(item)")
 }, cancel: {
-	// do something here
+	print("Cancel ===")
 }, from: self)
 ```
 
+## Usage with section and complete configuration
+```swift
+// specify the strings
+let rows: [DTStringPickerModelSection] = [
+	DTStringPickerModelSection(title: "Header 1",
+								items: [
+								DTStringPickerModelItem(text: "Pilih satu dua"),
+								DTStringPickerModelItem(text: "Ini nomor dua"),
+								DTStringPickerModelItem(text: "Di sini nomor ketiga"),
+								]),
+	DTStringPickerModelSection(title: "Second Header",
+								items: [
+								DTStringPickerModelItem(text: "Pilih satu dua"),
+								DTStringPickerModelItem(text: "Ini nomor dua"),
+								DTStringPickerModelItem(text: "Di sini nomor ketiga"),
+								]),
+]
+
+// custom ui
+var config = DTStringPickerConfig(color: UIColor.black, background: UIColor.white)
+config.title = "Choose one option"
+config.alignment = .left
+config.itemFont = UIFont.systemFont(ofSize: 17, weight: .regular)
+config.color = UIColor.black
+config.backgroundColor = UIColor.white
+config.shadowColor = UIColor.black
+config.titleFont = UIFont.systemFont(ofSize: 30, weight: .bold)
+config.titleColor = UIColor.black
+config.sectionBackground = UIColor.init(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
+config.sectionFont = UIFont.systemFont(ofSize: 16, weight: .bold)
+config.sectionColor = UIColor.black
+
+DTStringPicker.show(with: config, rowSections: rows, done: { item in
+	print("Item: \(item)")
+}, cancel: {
+	print("Cancel ===")
+}, from: self)
+```
+
+
 ## Author
 **Didats Triadi**  
-http://rimbunesia.com
+http://rimbunesia.com  
 http://didatstriadi.com
 
 
