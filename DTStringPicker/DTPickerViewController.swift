@@ -1,6 +1,6 @@
 //
 //  DTPickerViewController.swift
-//  Academy
+//  DTStringPicker
 //
 //  Created by Didats Triadi on 17/07/19.
 //  Copyright © 2019 Rimbunesia. All rights reserved.
@@ -10,116 +10,106 @@ import UIKit
 
 class DTPickerViewController: UIViewController {
     
-    private var tableView = UITableView(frame: CGRect.zero)
-    private var imageView = UIImageView(frame: CGRect.zero)
-    private var buttonDismiss = UIButton(frame: CGRect.zero)
-    private var viewBox = DTPickerView(frame: CGRect.zero)
-    private var buttonArrow = UIButton(frame: CGRect.zero)
-    private var buttonCancel = UIButton(frame: CGRect.zero)
+    var viewModel: DTPickerViewModel!
+    
+    private var uiModel: PickerUI!
     
     var config: DTStringPickerConfig!
-    var list: [String] = []
-    var background: UIImage?
-    var router: DTPickerRouter!
-    var clicked: ((_ selected: Int, _ title: String) -> Void)?
+    var alignment: DTStringPickerAlignment!
+    
     var cancel: (() -> Void)?
     
-    var constraintBottom: NSLayoutConstraint!
-    var constraintHeight: NSLayoutConstraint!
+    override func loadView() {
+        super.loadView()
+        self.uiModel = PickerUI(from: self, config: self.config)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        router = DTPickerRouter(controller: self)
         
-        let views: [UIView] = [imageView, buttonDismiss, viewBox, buttonArrow, tableView, buttonCancel]
-        var i = 0
-        views.forEach { (item) in
-            if item.superview == nil {
-                if i > 2 {
-                    viewBox.addSubview(item)
-                }
-                else {
-                    view.addSubview(item)
-                }
-            }
-            item.translatesAutoresizingMaskIntoConstraints = false
-            i += 1
+        uiModel.tableViewDelegate = self
+        uiModel.tableViewDataSource = self
+        uiModel.searchbarDelegate = self
+        self.uiModel.setup()
+        
+        self.bindToViewModel()
+    }
+    
+    private func bindToViewModel() {
+        viewModel.didSearch = { [weak self] in
+            self?.uiModel.reloadData()
         }
-        buttonArrow.setTitle("⇓", for: .normal)
-        buttonArrow.setTitleColor(config.color, for: .normal)
-        buttonArrow.tapped { [unowned self] in self.router.dismiss()  }
-        
-        tableView.delegate = router
-        tableView.dataSource = router
-        
-        view.backgroundColor = UIColor.clear
-        
-        imageView.image = background
-        viewBox.backgroundColor = config.backgroundColor
-        viewBox.layer.cornerRadius = 10
-        viewBox.layer.masksToBounds = true
-        
-        buttonDismiss.backgroundColor = UIColor.black
-        buttonDismiss.alpha = 0.4
-        
-        buttonDismiss.tapped { [unowned self] in self.router.dismiss() }
-        viewBox.dismiss = { [unowned self] in self.router.dismiss() }
-        
-        constraintBottom = viewBox.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: UIScreen.main.bounds.size.height)
-        
-        buttonCancel.backgroundColor = config.color.withAlphaComponent(0.3)
-        buttonCancel.setTitle(config.cancelTitle, for: .normal)
-        buttonCancel.titleLabel?.font = config.cancelFont
-        buttonCancel.layer.cornerRadius = 17.5
-        buttonCancel.layer.masksToBounds = true
-        buttonCancel.tapped { [unowned self] in self.router.dismiss() }
-        
-        constraintHeight = viewBox.heightAnchor.constraint(equalToConstant: router.height())
-        
-        let margins = view.layoutMarginsGuide
-        
-        view.addConstraints([
-            imageView.topAnchor.constraint(equalTo: view.topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
-            buttonDismiss.topAnchor.constraint(equalTo: view.topAnchor),
-            buttonDismiss.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            buttonDismiss.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            buttonDismiss.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
-            constraintHeight,
-            constraintBottom,
-            viewBox.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            viewBox.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
-            buttonArrow.widthAnchor.constraint(equalToConstant: 40),
-            buttonArrow.heightAnchor.constraint(equalToConstant: 40),
-            buttonArrow.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            buttonArrow.topAnchor.constraint(equalTo: viewBox.topAnchor, constant: 15),
-            buttonArrow.bottomAnchor.constraint(equalTo: tableView.topAnchor),
-            
-            tableView.bottomAnchor.constraint(equalTo: viewBox.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: viewBox.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: viewBox.trailingAnchor),
-            
-            buttonCancel.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 0),
-            buttonCancel.topAnchor.constraint(equalTo: viewBox.topAnchor, constant: 20),
-            buttonCancel.heightAnchor.constraint(equalToConstant: 35),
-            buttonCancel.widthAnchor.constraint(equalToConstant: 100)
-        ])
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        self.router.showing()
+        UIApplication.delay(withTime: 0.2) {
+            self.uiModel.bottomConstraint(constant: 0)
+        }
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        constraintHeight.constant = router.height()
         view.layoutIfNeeded()
+    }
+}
+
+extension DTPickerViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.search(text: searchText)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        viewModel.search(text: searchBar.text ?? "")
+        searchBar.resignFirstResponder()
+        uiModel.toggle(keyboardHidden: true)
+        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+        uiModel.toggle(keyboardHidden: true)
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        uiModel.toggle(keyboardHidden: false)
+    }
+}
+
+extension DTPickerViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        viewModel.clicked(indexPath: indexPath)
+        uiModel.dismiss()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 55
+    }
+}
+
+extension DTPickerViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.displayList.count
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return uiModel.headerView(text: viewModel.displayList[section].title)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        let text = viewModel.displayList[section].title
+        return text.isEmpty ? 0 : 40
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let section = viewModel.displayList[section]
+        return section.items.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let section = viewModel.displayList[indexPath.section]
+        return DTPickerCell.create(tableView: tableView, indexPath: indexPath, data: section.items[indexPath.row].text, config: config)
     }
 }

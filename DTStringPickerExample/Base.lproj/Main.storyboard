@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,24 +16,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z5Q-x9-2EM">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z5Q-x9-2EM">
                                 <rect key="frame" x="128.5" y="421" width="157" height="54"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="157" id="nBc-g5-dJb"/>
                                     <constraint firstAttribute="height" constant="54" id="q7K-l6-Uac"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Option without section"/>
                                 <connections>
                                     <action selector="clicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Trb-pV-Ebx"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wxf-rR-hkv">
+                                <rect key="frame" x="128.5" y="491" width="157" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="ruY-aV-EFH"/>
+                                    <constraint firstAttribute="width" constant="157" id="wgg-EP-Y9x"/>
+                                </constraints>
+                                <state key="normal" title="Option with section"/>
+                                <connections>
+                                    <action selector="optionSectionClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d7d-b6-mdJ"/>
+                                </connections>
+                            </button>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ibS-LT-KpB">
+                                <rect key="frame" x="0.0" y="128" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Wxf-rR-hkv" firstAttribute="top" secondItem="Z5Q-x9-2EM" secondAttribute="bottom" constant="16" id="0iR-Eh-pqw"/>
+                            <constraint firstItem="Wxf-rR-hkv" firstAttribute="leading" secondItem="Z5Q-x9-2EM" secondAttribute="leading" id="1AZ-hS-trt"/>
                             <constraint firstItem="Z5Q-x9-2EM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="1DK-r2-Oh6"/>
                             <constraint firstItem="Z5Q-x9-2EM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dCi-YB-cw4"/>
+                            <constraint firstItem="Wxf-rR-hkv" firstAttribute="trailing" secondItem="Z5Q-x9-2EM" secondAttribute="trailing" id="tgd-xQ-cIl"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

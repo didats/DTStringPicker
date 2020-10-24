@@ -1,6 +1,6 @@
 //
 //  DTStringPicker.swift
-//  Bayar Woi
+//  DTStringPicker
 //
 //  Created by Didats Triadi on 29/07/19.
 //  Copyright © 2019 Rimbunesia. All rights reserved.
@@ -9,50 +9,115 @@
 import UIKit
 
 public struct DTStringPicker {
-    public static func show(with configuration: DTStringPickerConfig, rows: [String], done: @escaping(_ selected: Int, _ str: String) -> Void, cancel: @escaping() -> Void, from viewController: UIViewController) {
-        let picker = DTPickerRouter.openPicker(from: viewController, list: rows, config: configuration)
-        picker.cancel = cancel
-        picker.clicked = done
+    
+    private var pickerController: DTPickerViewController!
+    
+    public init(configuration: DTStringPickerConfig,
+                rowItems: [DTStringPickerModelItem],
+                alignment: DTStringPickerAlignment = .left,
+                done: @escaping(_ item: DTStringPickerSelection) -> Void,
+                cancel: @escaping() -> Void) {
+        
+        let pickerViewController = DTPickerViewController()
+        let viewModel = DTPickerViewModel()
+        viewModel.list = [DTStringPickerModelSection(title: "", items: rowItems)]
+        viewModel.didClicked = { item in done(item) }
+        
+        pickerViewController.config = configuration
+        pickerViewController.alignment = alignment
+        pickerViewController.viewModel = viewModel
+        pickerViewController.cancel = { cancel() }
+        
+        self.pickerController = pickerViewController
     }
     
-    public static func show(rows: [String], done: @escaping(_ selected: Int, _ str: String) -> Void, cancel: @escaping() -> Void, from viewController: UIViewController) {
-        show(with: DTStringPickerConfig(), rows: rows, done: done, cancel: cancel, from: viewController)
-    }
-}
-
-public struct DTStringPickerConfig {
-    var cancelTitle: String
-    var doneTile: String
-    var itemFont: UIFont
-    var doneFont: UIFont
-    var cancelFont: UIFont
-    var color: UIColor
-    var backgroundColor: UIColor
-    
-    init() {
-        cancelTitle = "Cancel"
-        doneTile = "Done"
-        itemFont = UIFont.systemFont(ofSize: 17, weight: .light)
-        doneFont = UIFont.systemFont(ofSize: 20, weight: .semibold)
-        cancelFont = UIFont.systemFont(ofSize: 16, weight: .regular)
-        color = UIColor(red: 221/255, green: 10/255, blue: 89/255, alpha: 1.0)
-        backgroundColor = UIColor.white
+    public init(configuration: DTStringPickerConfig,
+                rowSections: [DTStringPickerModelSection],
+                alignment: DTStringPickerAlignment = .left,
+                done: @escaping(_ item: DTStringPickerSelection) -> Void,
+                cancel: @escaping() -> Void) {
+        
+        let pickerViewController = DTPickerViewController()
+        let viewModel = DTPickerViewModel()
+        viewModel.list = rowSections
+        viewModel.didClicked = { item in done(item) }
+        
+        pickerViewController.config = configuration
+        pickerViewController.alignment = alignment
+        pickerViewController.viewModel = viewModel
+        pickerViewController.cancel = { cancel() }
+        
+        self.pickerController = pickerViewController
         
     }
     
-    init(cancel: String, font: UIFont, cancelFont: UIFont, color: UIColor, background: UIColor) {
-        self.init()
-        cancelTitle = cancel
-        itemFont = font
-        self.cancelFont = cancelFont
-        self.color = color
-        backgroundColor = background
+    public static func show(with configuration: DTStringPickerConfig,
+                            rowItems: [DTStringPickerModelItem],
+                            done: @escaping(_ item: DTStringPickerSelection) -> Void,
+                            cancel: @escaping() -> Void,
+                            from viewController: UIViewController,
+                            alignment: DTStringPickerAlignment = .left) {
+        
+        let picker = DTStringPicker(configuration: configuration, rowItems: rowItems, alignment: alignment, done: done, cancel: cancel)
+        picker.show(from: viewController)
+        
     }
     
-    init(cancel: String, font: UIFont, color: UIColor) {
-        self.init()
-        cancelTitle = cancel
-        itemFont = font
-        self.color = color
+    public static func show(with configuration: DTStringPickerConfig,
+                            rowSections: [DTStringPickerModelSection],
+                            done: @escaping(_ item: DTStringPickerSelection) -> Void,
+                            cancel: @escaping() -> Void,
+                            from viewController: UIViewController,
+                            alignment: DTStringPickerAlignment = .left) {
+        
+        let picker = DTStringPicker(configuration: configuration, rowSections: rowSections, alignment: alignment, done: done, cancel: cancel)
+        picker.show(from: viewController)
+    }
+    
+    public func show(from viewController: UIViewController) {
+        viewController.present(pickerController, animated: false, completion: nil)
+    }
+}
+
+class PickerClosureSleeve {
+    let closure: ()->()
+    
+    init (_ closure: @escaping ()->()) {
+        self.closure = closure
+    }
+    
+    @objc func invoke () {
+        closure()
+    }
+}
+
+extension UIButton {
+    private struct AssociatedKeys {
+        static var targetClosure = "targetClosure"
+    }
+    
+    func tapped( _ closure: @escaping ()->()) {
+        let sleeve = PickerClosureSleeve(closure)
+        addTarget(sleeve, action: #selector(PickerClosureSleeve.invoke), for: .touchUpInside)
+        objc_setAssociatedObject(self, String(ObjectIdentifier(self).hashValue) + String(UIControl.Event.touchUpInside.rawValue), sleeve,
+                                 objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+    }
+}
+
+extension UIApplication {
+    static func delay(withTime: Double, callback: @escaping () -> Void) {
+        let when = DispatchTime.now() + withTime
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            callback()
+        }
+    }
+    
+    static func takeScreenshot(from: UIView) -> UIImage? {
+        UIGraphicsBeginImageContext(from.bounds.size)
+        from.drawHierarchy(in: from.bounds, afterScreenUpdates: true)
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return img
     }
 }

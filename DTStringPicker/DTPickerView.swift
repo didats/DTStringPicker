@@ -1,6 +1,6 @@
 //
 //  DTPickerView.swift
-//  Academy
+//  DTStringPicker
 //
 //  Created by Didats Triadi on 18/07/19.
 //  Copyright © 2019 Rimbunesia. All rights reserved.
@@ -34,6 +34,13 @@ class DTPickerView: UIView {
     private func generateView() {
         layer.cornerRadius = 15
         layer.masksToBounds = true
+        
+        clipsToBounds = true
+        layer.shadowOpacity = 0.15
+        layer.shadowRadius = 5
+        layer.shadowOffset = CGSize(width: 0, height: -5)
+        layer.masksToBounds = false
+        layer.cornerRadius = 12
         
         gesture = UIPanGestureRecognizer(target: self, action: #selector(DTPickerView.pan(_:)))
         addGestureRecognizer(gesture)
