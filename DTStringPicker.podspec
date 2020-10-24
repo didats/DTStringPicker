@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "DTStringPicker"
-  spec.version      = "0.0.5"
+  spec.version      = "0.0.6"
   spec.summary      = "Modern String Picker with search functionality for iOS"
   spec.description  = "String Picker with search, and a section. Might be an alternative for ActionSheetPicker, at least for the string picker"
   spec.homepage     = "https://github.com/didats/DTStringPicker"
