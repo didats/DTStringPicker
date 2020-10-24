@@ -6,10 +6,10 @@
 [![Platform](https://img.shields.io/cocoapods/p/DTStringPicker?style=flat)](http://cocoapods.org/pods/DTStringPicker)
 [![CocoaPods](https://img.shields.io/badge/Cocoa%20Pods-✓-4BC51D.svg?style=flat)](https://cocoapods.org/pods/DTStringPicker)
 
-A modern String Picker with search functionality. 
+A modern String Picker with search functionality. You are able to set the text alignment, background color, text color, font as well.
 
 ## Screenshot
-![Screenshot](https://github.com/didats/DTStringPicker/raw/master/DTStringPicker.gif)
+<img src="https://github.com/didats/DTStringPicker/raw/master/DTStringPicker.gif" width="300">
 
 ##  Requirements
 * Base SDK: iOS 12
