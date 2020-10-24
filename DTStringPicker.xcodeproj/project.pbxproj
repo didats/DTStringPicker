@@ -11,22 +11,25 @@
 		1B2976FC24AC634A0004A272 /* PickerImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B2976FA24AC634A0004A272 /* PickerImageCell.xib */; };
 		1B29770124AC653C0004A272 /* PickerTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2976FF24AC653C0004A272 /* PickerTextCell.swift */; };
 		1B29770224AC653C0004A272 /* PickerTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B29770024AC653C0004A272 /* PickerTextCell.xib */; };
+		1B29770424ACCDF80004A272 /* NibViewInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B29770324ACCDF80004A272 /* NibViewInitializer.swift */; };
+		1B693DAE2541CDC500172E99 /* DTPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B693DAD2541CDC500172E99 /* DTPickerViewModel.swift */; };
+		1B693DB12541CF2500172E99 /* DTPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B693DAD2541CDC500172E99 /* DTPickerViewModel.swift */; };
+		1B693DB5254232C700172E99 /* DTStringPickerUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B693DB4254232C700172E99 /* DTStringPickerUI.swift */; };
+		1B693DB82542394300172E99 /* DTStringPickerUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B693DB4254232C700172E99 /* DTStringPickerUI.swift */; };
+		1B693DC02542499700172E99 /* DTStringPickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B693DBF2542499600172E99 /* DTStringPickerModel.swift */; };
+		1B693DC325424E9600172E99 /* DTStringPickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B693DBF2542499600172E99 /* DTStringPickerModel.swift */; };
 		1BE9FD5D22EFA81A00BF7CC2 /* DTStringPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BE9FD5B22EFA81A00BF7CC2 /* DTStringPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1BE9FD6A22EFA96800BF7CC2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9FD6922EFA96800BF7CC2 /* AppDelegate.swift */; };
 		1BE9FD6C22EFA96800BF7CC2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9FD6B22EFA96800BF7CC2 /* ViewController.swift */; };
 		1BE9FD6F22EFA96800BF7CC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BE9FD6D22EFA96800BF7CC2 /* Main.storyboard */; };
 		1BE9FD7122EFA96A00BF7CC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BE9FD7022EFA96A00BF7CC2 /* Assets.xcassets */; };
 		1BE9FD7422EFA96A00BF7CC2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BE9FD7222EFA96A00BF7CC2 /* LaunchScreen.storyboard */; };
-		1BE9FD7F22EFAB3C00BF7CC2 /* DTPickerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9FD7922EFAB3C00BF7CC2 /* DTPickerRouter.swift */; };
 		1BE9FD8022EFAB3C00BF7CC2 /* DTPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9FD7A22EFAB3C00BF7CC2 /* DTPickerViewController.swift */; };
 		1BE9FD8122EFAB3C00BF7CC2 /* DTPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9FD7B22EFAB3C00BF7CC2 /* DTPickerView.swift */; };
 		1BE9FD8222EFAB3C00BF7CC2 /* DTPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9FD7C22EFAB3C00BF7CC2 /* DTPickerCell.swift */; };
-		1BE9FD8322EFAB3C00BF7CC2 /* DTPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9FD7D22EFAB3C00BF7CC2 /* DTPickerPresenter.swift */; };
 		1BE9FD8422EFAB3C00BF7CC2 /* DTStringPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9FD7E22EFAB3C00BF7CC2 /* DTStringPicker.swift */; };
 		1BE9FD8D22EFAD0000BF7CC2 /* DTPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9FD8722EFAD0000BF7CC2 /* DTPickerCell.swift */; };
 		1BE9FD8E22EFAD0000BF7CC2 /* DTPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9FD8822EFAD0000BF7CC2 /* DTPickerViewController.swift */; };
-		1BE9FD8F22EFAD0000BF7CC2 /* DTPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9FD8922EFAD0000BF7CC2 /* DTPickerPresenter.swift */; };
-		1BE9FD9022EFAD0000BF7CC2 /* DTPickerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9FD8A22EFAD0000BF7CC2 /* DTPickerRouter.swift */; };
 		1BE9FD9122EFAD0000BF7CC2 /* DTPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9FD8B22EFAD0000BF7CC2 /* DTPickerView.swift */; };
 		1BE9FD9222EFAD0000BF7CC2 /* DTStringPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9FD8C22EFAD0000BF7CC2 /* DTStringPicker.swift */; };
 /* End PBXBuildFile section */
@@ -36,6 +39,10 @@
 		1B2976FA24AC634A0004A272 /* PickerImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerImageCell.xib; sourceTree = "<group>"; };
 		1B2976FF24AC653C0004A272 /* PickerTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerTextCell.swift; sourceTree = "<group>"; };
 		1B29770024AC653C0004A272 /* PickerTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerTextCell.xib; sourceTree = "<group>"; };
+		1B29770324ACCDF80004A272 /* NibViewInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibViewInitializer.swift; sourceTree = "<group>"; };
+		1B693DAD2541CDC500172E99 /* DTPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTPickerViewModel.swift; sourceTree = "<group>"; };
+		1B693DB4254232C700172E99 /* DTStringPickerUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTStringPickerUI.swift; sourceTree = "<group>"; };
+		1B693DBF2542499600172E99 /* DTStringPickerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTStringPickerModel.swift; sourceTree = "<group>"; };
 		1BE9FD5822EFA81A00BF7CC2 /* DTStringPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DTStringPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BE9FD5B22EFA81A00BF7CC2 /* DTStringPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTStringPicker.h; sourceTree = "<group>"; };
 		1BE9FD5C22EFA81A00BF7CC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -46,17 +53,13 @@
 		1BE9FD7022EFA96A00BF7CC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BE9FD7322EFA96A00BF7CC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1BE9FD7522EFA96A00BF7CC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1BE9FD7922EFAB3C00BF7CC2 /* DTPickerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTPickerRouter.swift; sourceTree = "<group>"; };
 		1BE9FD7A22EFAB3C00BF7CC2 /* DTPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTPickerViewController.swift; sourceTree = "<group>"; };
 		1BE9FD7B22EFAB3C00BF7CC2 /* DTPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTPickerView.swift; sourceTree = "<group>"; };
 		1BE9FD7C22EFAB3C00BF7CC2 /* DTPickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTPickerCell.swift; sourceTree = "<group>"; };
-		1BE9FD7D22EFAB3C00BF7CC2 /* DTPickerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTPickerPresenter.swift; sourceTree = "<group>"; };
 		1BE9FD7E22EFAB3C00BF7CC2 /* DTStringPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTStringPicker.swift; sourceTree = "<group>"; };
 		1BE9FD8622EFAD0000BF7CC2 /* DTStringPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTStringPicker.h; path = DTStringPicker/DTStringPicker.h; sourceTree = SOURCE_ROOT; };
 		1BE9FD8722EFAD0000BF7CC2 /* DTPickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DTPickerCell.swift; path = DTStringPicker/DTPickerCell.swift; sourceTree = SOURCE_ROOT; };
 		1BE9FD8822EFAD0000BF7CC2 /* DTPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DTPickerViewController.swift; path = DTStringPicker/DTPickerViewController.swift; sourceTree = SOURCE_ROOT; };
-		1BE9FD8922EFAD0000BF7CC2 /* DTPickerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DTPickerPresenter.swift; path = DTStringPicker/DTPickerPresenter.swift; sourceTree = SOURCE_ROOT; };
-		1BE9FD8A22EFAD0000BF7CC2 /* DTPickerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DTPickerRouter.swift; path = DTStringPicker/DTPickerRouter.swift; sourceTree = SOURCE_ROOT; };
 		1BE9FD8B22EFAD0000BF7CC2 /* DTPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DTPickerView.swift; path = DTStringPicker/DTPickerView.swift; sourceTree = SOURCE_ROOT; };
 		1BE9FD8C22EFAD0000BF7CC2 /* DTStringPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DTStringPicker.swift; path = DTStringPicker/DTStringPicker.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -127,14 +130,16 @@
 		1BE9FD5A22EFA81A00BF7CC2 /* DTStringPicker */ = {
 			isa = PBXGroup;
 			children = (
+				1B29770324ACCDF80004A272 /* NibViewInitializer.swift */,
 				1B2976F824AC630B0004A272 /* Cells */,
 				1BE9FD5B22EFA81A00BF7CC2 /* DTStringPicker.h */,
 				1BE9FD7C22EFAB3C00BF7CC2 /* DTPickerCell.swift */,
-				1BE9FD7D22EFAB3C00BF7CC2 /* DTPickerPresenter.swift */,
-				1BE9FD7922EFAB3C00BF7CC2 /* DTPickerRouter.swift */,
 				1BE9FD7B22EFAB3C00BF7CC2 /* DTPickerView.swift */,
 				1BE9FD7A22EFAB3C00BF7CC2 /* DTPickerViewController.swift */,
+				1B693DAD2541CDC500172E99 /* DTPickerViewModel.swift */,
 				1BE9FD7E22EFAB3C00BF7CC2 /* DTStringPicker.swift */,
+				1B693DB4254232C700172E99 /* DTStringPickerUI.swift */,
+				1B693DBF2542499600172E99 /* DTStringPickerModel.swift */,
 				1BE9FD5C22EFA81A00BF7CC2 /* Info.plist */,
 			);
 			path = DTStringPicker;
@@ -158,8 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				1BE9FD8722EFAD0000BF7CC2 /* DTPickerCell.swift */,
-				1BE9FD8922EFAD0000BF7CC2 /* DTPickerPresenter.swift */,
-				1BE9FD8A22EFAD0000BF7CC2 /* DTPickerRouter.swift */,
 				1BE9FD8B22EFAD0000BF7CC2 /* DTPickerView.swift */,
 				1BE9FD8822EFAD0000BF7CC2 /* DTPickerViewController.swift */,
 				1BE9FD8622EFAD0000BF7CC2 /* DTStringPicker.h */,
@@ -282,14 +285,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B693DAE2541CDC500172E99 /* DTPickerViewModel.swift in Sources */,
 				1BE9FD8022EFAB3C00BF7CC2 /* DTPickerViewController.swift in Sources */,
-				1BE9FD7F22EFAB3C00BF7CC2 /* DTPickerRouter.swift in Sources */,
 				1B29770124AC653C0004A272 /* PickerTextCell.swift in Sources */,
 				1B2976FB24AC634A0004A272 /* PickerImageCell.swift in Sources */,
+				1B693DB5254232C700172E99 /* DTStringPickerUI.swift in Sources */,
+				1B693DC02542499700172E99 /* DTStringPickerModel.swift in Sources */,
+				1B29770424ACCDF80004A272 /* NibViewInitializer.swift in Sources */,
 				1BE9FD8122EFAB3C00BF7CC2 /* DTPickerView.swift in Sources */,
 				1BE9FD8222EFAB3C00BF7CC2 /* DTPickerCell.swift in Sources */,
 				1BE9FD8422EFAB3C00BF7CC2 /* DTStringPicker.swift in Sources */,
-				1BE9FD8322EFAB3C00BF7CC2 /* DTPickerPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +302,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BE9FD9022EFAD0000BF7CC2 /* DTPickerRouter.swift in Sources */,
+				1B693DC325424E9600172E99 /* DTStringPickerModel.swift in Sources */,
+				1B693DB82542394300172E99 /* DTStringPickerUI.swift in Sources */,
+				1B693DB12541CF2500172E99 /* DTPickerViewModel.swift in Sources */,
 				1BE9FD9122EFAD0000BF7CC2 /* DTPickerView.swift in Sources */,
 				1BE9FD8E22EFAD0000BF7CC2 /* DTPickerViewController.swift in Sources */,
 				1BE9FD6C22EFA96800BF7CC2 /* ViewController.swift in Sources */,
 				1BE9FD9222EFAD0000BF7CC2 /* DTStringPicker.swift in Sources */,
 				1BE9FD8D22EFAD0000BF7CC2 /* DTPickerCell.swift in Sources */,
 				1BE9FD6A22EFA96800BF7CC2 /* AppDelegate.swift in Sources */,
-				1BE9FD8F22EFAD0000BF7CC2 /* DTPickerPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

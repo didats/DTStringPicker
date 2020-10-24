@@ -1,6 +1,6 @@
 //
 //  DTPickerCell.swift
-//  Academy
+//  DTStringPicker
 //
 //  Created by Didats Triadi on 18/07/19.
 //  Copyright © 2019 Rimbunesia. All rights reserved.
@@ -34,6 +34,7 @@ class DTPickerCell: UITableViewCell {
         textLabel?.textColor = config.color
         textLabel?.font = config.itemFont
         textLabel?.text = str
+        textLabel?.textAlignment = config.alignment.convert()
         
         backgroundColor = config.backgroundColor
         contentView.backgroundColor = config.backgroundColor
