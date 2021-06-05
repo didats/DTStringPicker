@@ -8,6 +8,21 @@
 
 A modern String Picker with search functionality. You are able to set the text alignment, background color, text color, font as well.
 
+## Behind the scene
+
+To let user choose an option in iOS you may choose a default UI which called `UIPickerView`. But configuring the `UIPickerView` with a good approach is not that easy. Few years back, I have found that `ActionSheetPicker` is useful. That library is combining `UIActionSheet` and `UIPickerView`. 
+
+But this is 2021. In my opinion, we should have better choice. After no longer using `ActionSheetPicker`, I made a list of options in another page with `UITableView`. Then instead of going to other page, I made `DTStringPicker`. 
+
+Hopefully, it will benefit many developer out there searching for `ActionSheetPicker` alternative.
+
+## Features
+This library is very useful atleast for me, for these kind of situations:
+1. You need to let your user choose more than 2 options
+2. You want to show the option with sections
+3. You want to let user search for an option
+4. You want to something modern
+
 ## Screenshot
 <img src="https://github.com/didats/DTStringPicker/raw/master/DTStringPicker.gif" width="300">
 
