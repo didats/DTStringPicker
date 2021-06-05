@@ -13,13 +13,13 @@ A modern String Picker with search functionality. You are able to set the text a
 
 ##  Requirements
 * Base SDK: iOS 12
-* Deployment Target: iOS 10.0 or greater
+* Deployment Target: iOS 12.0 or greater
 
 ## Installation
-Add following in your Podfile
+Add following in your Podfile.
 
 ```
-pod ‘DTStringPicker’
+pod 'DTStringPicker', :git => 'https://github.com/didats/DTStringPicker'
 ```
 
 ## Usage without section

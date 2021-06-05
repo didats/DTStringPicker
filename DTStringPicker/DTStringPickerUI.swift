@@ -72,6 +72,7 @@ struct PickerUI {
         searchBar.showsCancelButton = true
         searchBar.enablesReturnKeyAutomatically = true
         searchBar.barStyle = .default
+        searchBar.barTintColor = config.backgroundColor
         
         titleLabel.font = config.titleFont
         titleLabel.textColor = config.titleColor
@@ -93,7 +94,6 @@ struct PickerUI {
             boxView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.height * 0.75),
             boxView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             boxView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            //boxView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: UIScreen.main.bounds.size.height),
             
             titleLabel.leadingAnchor.constraint(equalTo: boxView.leadingAnchor, constant: 20),
             titleLabel.trailingAnchor.constraint(equalTo: boxView.trailingAnchor, constant: -20),
